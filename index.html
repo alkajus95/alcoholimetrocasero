@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcoholímetro Casero con Arduino y MQ-3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-flex">
+            <span id="titulo-principal">Alcoholímetro Casero con Arduino y MQ-3</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#proteger" id="nav-proteger">¿Qué buscamos proteger?</a></li>
+                <li><a href="#fisica" id="nav-fisica">Física</a></li>
+                <li><a href="#quimica" id="nav-quimica">Química</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; justify-content: center; margin-top: 0.7rem;">
+            <button id="lang-btn">Cambiar idioma</button>
+        </div>
+    </header>
+    <main>
+        <section id="proteger">
+            <h2 class="section-title" id="proteger-title">¿Qué buscamos cuidar y proteger?</h2>
+            <div class="card">
+                <ul id="proteger-list">
+                    <li>La vida y la seguridad de las personas en la vía pública.</li>
+                    <li>La salud física y mental de quienes consumen alcohol.</li>
+                    <li>La conciencia sobre los riesgos de manejar bajo efectos del alcohol.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="fisica">
+            <h2 class="section-title" id="fisica-title">Aspectos Físicos</h2>
+            <div class="card">
+                <h3 id="fisica-h3">¿Cómo funciona el sensor MQ-3?</h3>
+                <ul id="fisica-list">
+                    <li>Detecta vapores de alcohol en el aire mediante un material semiconductor (SnO₂).</li>
+                    <li>La resistencia eléctrica del sensor varía según la concentración de alcohol.</li>
+                    <li>El Arduino mide ese cambio y lo traduce en una señal digital.</li>
+                    <li>El sensor MQ-3 es sensible a la temperatura y la humedad, factores que pueden afectar la medición.</li>
+                    <li>Se utiliza un divisor de voltaje para leer la resistencia variable del sensor con el Arduino.</li>
+                </ul>
+                <div class="ohm-box" id="ohm-box-1">
+                    <strong id="ohm-title">Ley de Ohm:</strong><br>
+                    <span style="font-family:monospace;" id="ohm-eq">V = I × R</span><br>
+                    <ul id="ohm-list">
+                        <li><b>V</b>: Voltaje (tensión) aplicado al sensor.</li>
+                        <li><b>I</b>: Corriente que circula por el sensor.</li>
+                        <li><b>R</b>: Resistencia del sensor, que cambia según la cantidad de alcohol detectada.</li>
+                    </ul>
+                    <p id="ohm-exp">Cuando el sensor MQ-3 detecta alcohol, su resistencia <b>R</b> disminuye, lo que provoca un aumento en la corriente <b>I</b> (si el voltaje <b>V</b> es constante). Así, el Arduino puede calcular la concentración de alcohol midiendo la variación de resistencia.</p>
+                    <p id="ohm-ej">Ejemplo: Si el sensor tiene una resistencia de 2kΩ y se aplica un voltaje de 5V, la corriente será I = 5V / 2000Ω = 0.0025A (2.5mA).</p>
+                </div>
+                <div class="ohm-box" id="ohm-box-2">
+                    <strong id="factores-title">Factores físicos a considerar:</strong>
+                    <ul id="factores-list">
+                        <li><b>Temperatura:</b> El sensor puede requerir un tiempo de calentamiento para estabilizarse.</li>
+                        <li><b>Humedad:</b> Altos niveles de humedad pueden alterar la respuesta del sensor.</li>
+                        <li><b>Ventilación:</b> Es importante realizar la medición en un ambiente controlado para evitar lecturas erróneas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="quimica">
+            <h2 class="section-title" id="quimica-title">Aspectos Químicos</h2>
+            <div class="card">
+                <h3 id="quimica-h3">Óxido-Reducción y el papel del SnO₂</h3>
+                <ul id="quimica-list">
+                    <li>El sensor MQ-3 utiliza óxido de estaño (SnO₂) como material sensible.</li>
+                    <li>Cuando el etanol entra en contacto con el SnO₂, ocurre una reacción de óxido-reducción: el etanol se oxida y el SnO₂ se reduce parcialmente, liberando electrones.</li>
+                    <li>Estos electrones aumentan la conductividad del sensor, permitiendo detectar la presencia de alcohol.</li>
+                    <li>La reacción química principal es:<br><span style="font-family:monospace;" id="quimica-eq">C₂H₅OH + O₂ (SnO₂) → CH₃CHO + H₂O + e⁻</span></li>
+                    <li>La cantidad de electrones liberados depende de la concentración de alcohol en el aire.</li>
+                </ul>
+                <div class="ohm-box" id="quimica-box-1">
+                    <strong id="quimica-porque">¿Por qué se usa SnO₂?</strong>
+                    <ul id="quimica-porque-list">
+                        <li>El SnO₂ es un semiconductor tipo n, muy sensible a gases reductores como el etanol.</li>
+                        <li>La superficie del SnO₂ adsorbe oxígeno, que reacciona con el etanol y libera electrones.</li>
+                        <li>Este proceso de óxido-reducción es reversible, permitiendo que el sensor se use muchas veces.</li>
+                    </ul>
+                </div>
+                <div class="ohm-box" id="quimica-box-2">
+                    <strong id="quimica-factores">Otros factores químicos:</strong>
+                    <ul id="quimica-factores-list">
+                        <li>Presencia de otros compuestos orgánicos volátiles (VOC) puede interferir en la medición.</li>
+                        <li>El sensor MQ-3 es más selectivo al etanol, pero puede responder a otros alcoholes.</li>
+                        <li>El proceso de limpieza del sensor se realiza quemando los residuos con el calentador interno.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* Variables de color principales */
+:root {
+    /* Classic Red Palette */
+    --color-bg-gradient-start: #fff5f5;
+    --color-bg-gradient-end: #ffe3e3;
+    --color-header-bg: #b71c1c;
+    --color-header-text: #fff;
+    --color-accent: #d32f2f;
+    --color-card-bg: #ffcdd2;
+    --color-main-bg: #fff5f5;
+    --color-main-text: #2d0b00;
+    --color-shadow: rgba(183,28,28,0.10);
+    --color-shadow-header: rgba(211,47,47,0.10);
+    --color-shadow-card: rgba(255,205,210,0.10);
+    --color-border: #d32f2f;
+    --color-border-accent: #b71c1c;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+    margin: 0;
+    color: var(--color-main-text);
+    transition: background 0.5s, color 0.5s;
+}
+header {
+    background: var(--color-header-bg);
+    color: var(--color-header-text);
+    padding: 0.7rem 0 0.7rem 0;
+    box-shadow: 0 2px 12px var(--color-shadow-header);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background 0.5s, color 0.5s, box-shadow 0.4s;
+}
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    flex-wrap: wrap;
+}
+#titulo-principal {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--color-header-text);
+    text-align: left;
+    margin: 0.2em 0;
+    transition: color 0.5s;
+}
+#lang-btn {
+    background: var(--color-accent);
+    color: var(--color-header-text);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px var(--color-shadow-header);
+    transition: background 0.3s, color 0.3s, transform 0.15s, box-shadow 0.3s;
+    margin-left: 1.5rem;
+    outline: none;
+}
+#lang-btn:hover, #lang-btn:focus {
+    background: var(--color-header-text);
+    color: var(--color-header-bg);
+    transform: scale(1.05);
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+nav a {
+    color: var(--color-bg-gradient-start);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s, background 0.3s, border-radius 0.3s, padding 0.3s;
+}
+nav a:hover {
+    color: var(--color-header-bg);
+    background: var(--color-accent);
+    border-radius: 6px;
+    padding: 0.2rem 0.7rem;
+}
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--color-main-bg);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px var(--color-shadow);
+    padding: 2rem 2.5rem;
+    transition: background 0.5s, color 0.5s, box-shadow 0.4s;
+}
+.section-title {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 5px solid var(--color-border);
+    padding-left: 0.7rem;
+    transition: color 0.5s, border-color 0.5s;
+}
+.card {
+    background: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px var(--color-shadow-card);
+    transition: background 0.5s, color 0.5s, box-shadow 0.4s;
+}
+.card h3 {
+    margin-top: 0;
+    color: var(--color-main-text);
+}
+.card ul {
+    margin: 0.5rem 0 0 1.2rem;
+}
+.ohm-box {
+    background: var(--color-main-bg);
+    border: 2px dashed var(--color-border-accent);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+    color: var(--color-main-text);
+    font-size: 1.1rem;
+    transition: background 0.5s, color 0.5s, border-color 0.5s;
+}
+@media (max-width: 900px) {
+    main {
+        padding: 1.2rem 0.5rem;
+    }
+}
+@media (max-width: 600px) {
+    .header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 0.5rem;
+    }
+    #titulo-principal {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+    #lang-btn {
+        margin: 0.7rem 0 0 0;
+        width: 100%;
+        font-size: 1rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    main {
+        padding: 0.5rem 0.2rem;
+    }
+    .section-title {
+        font-size: 1.05rem;
+        padding-left: 0.4rem;
+    }
+    .card {
+        padding: 0.7rem 0.5rem;
+    }
+    .ohm-box {
+        font-size: 0.98rem;
+        padding: 0.7rem 0.5rem;
+    }
+}
